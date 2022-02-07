@@ -31,10 +31,10 @@ export function Tokens() {
   );
 }
 
-Tokens.storyName = 'upsell';
+Tokens.storyName = 'rainbow';
 
 function styles({ theme, token }) {
-  const background = tx(theme, core.color.upsell);
+  const background = tx(theme, core.color.rainbow);
   const color = 'white'; //readableColor(background);
 
   return css`

@@ -1,4 +1,3 @@
-import { shade } from 'polished';
 import styled, { css } from 'styled-components';
 
 import { core } from '../../../tokens';
@@ -19,23 +18,7 @@ export const Steps = styled(Text)`
   letter-spacing: -0.05px;
 `;
 
-const rainbowColors = [
-  '#ffb21e',
-  '#ff4d4d',
-  '#6447b6',
-  '#45c3ff',
-  '#0088cc',
-  '#7fc400',
-  '#ffc86c',
-  '#ffb21e',
-];
-
-const rainbow = {
-  light: rainbowColors.join(', '),
-  dark: rainbowColors.map((color) => shade(0.125, color)).join(', '),
-};
-
-const rainbowBackground = css`
+const backgroundRainbow = css`
   content: '';
   position: absolute;
   top: 0;
@@ -45,7 +28,7 @@ const rainbowBackground = css`
   z-index: -1;
   margin: -0.25rem;
   border-radius: 0.5rem;
-  background: conic-gradient(${(p) => rainbow[p.theme.name]});
+  background: ${core.color.rainbow};
 `;
 
 export const TourPointStyled = styled.div`
@@ -61,11 +44,11 @@ export const TourPointStyled = styled.div`
     0 1rem 1rem -1rem rgba(0, 0, 0, 0.25);
 
   &::before {
-    ${rainbowBackground}
+    ${backgroundRainbow}
   }
 
   &::after {
-    ${rainbowBackground}
+    ${backgroundRainbow}
     clip-path: var(--caret-clip-path);
     transform: var(--caret-translate);
   }
